@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h3 class="modal-title">LogIn</h3>
+</div>
+<div class="ott modal-body login" ng-form name="loginInputs">
+        <input type="text" name="login" placeholder="Login" ng-model="credentials.login" required is-focused="true" autofocus> <!-- Here is autofocus hack for bootstrap modal -->
+        <input type="password" name="password" placeholder="Password" ng-model="credentials.password" required hotkey="{Enter: logIn}">
+        <alert type="danger" ng-show="loginInputs.login.$error.required || loginInputs.password.$error.required">Login and password required</alert>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="logIn()"  ng-show="loginInputs.$valid">Login</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

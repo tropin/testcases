@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="OTTApp"> <!-- Main application directive allows angular to do all the things down the tree -->
+<head>
+    <title>One Two trip admin console</title>
+
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <header class="container">
+        <nav class="navbar navbar-default navbar-fixed-top" ng-controller="MainMenuController">
+            <a class="navbar-header navbar-brand" href="#/">OneTwoTrip</a>
+                <ul class="ott nav navbar-nav">
+                    <li>
+                        <a href="/#/home" ng-class="{active: activeRoute === 'home'}">Home</a>
+                    </li>
+                    <li>
+                        <a href="/#/contacts" ng-class="{active: activeRoute === 'contacts'}">Contacts</a>
+                    </li>
+                    <li>
+                        <a href="/#/admin" have-role="admin" ng-class="{active: activeRoute === 'admin'}">Admin console</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right ott login-status">
+                    <li>
+                        <a ng-click="signIn()" is-authentificated="false">Sign In</a>
+                    </li>
+                    <li>
+                        <a ng-click="signOut()" is-authentificated="true">Sign Out</a>
+                    </li>
+                </ul>
+        </nav>
+    </header>
+    <!-- Views rendering frame for ng-route -->
+    <section id="main-view" ng-view>
+    </section>
+    <footer class="navbar navbar-default navbar-fixed-bottom">
+        <span class="navbar-header navbar-brand">OneTwoTrip holding © 2015</span>
+    </footer>
+    <!-- General scripts includes [Warning, all this things can be bundled] -->
+    <script src='/lib/jquery/dist/jquery.min.js'></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-route/angular-route.min.js"></script>
+    <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/lib/ngstorage/ngStorage.min.js"></script>
+    <script src="/lib/angular-hotkeys/angular-hotkeys.min.js"></script>
+    <script src="/lib/angular-ipsum/dist/ipsum.min.js"></script>
+    <!-- Angular application includes -->
+    <script src="app.js"></script>
+    <!-- Services -->
+    <script src="/services/user.js"></script>
+    <!-- Controllers -->
+    <script src="/controllers/admin.js"></script>
+    <script src="/controllers/home.js"></script>
+    <script src="/controllers/contacts.js"></script>
+    <script src="/controllers/main-menu.js"></script>
+    <script src="/controllers/modal-login.js"></script>
+    <!-- Directives -->
+    <script src="/directives/have-role.js"></script>
+    <script src="/directives/is-authentificated.js"></script>
+    <script src="/directives/is-focused.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+
+//Main class selector for application
+
+#main-view{
+  padding: 50px 15px; //Header and footer guard paddings and content side paddings
+}
+
+.ott{
+  &.nav{
+    a{
+      cursor: pointer; //Pointer on all anchors, including href-free
+      &.active{
+        background: #000000 !important; // override very selective bootstrap menu :focus pseudo-style
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  &.login{ //Login popup
+    padding: 20px;
+    &.backdrop{ //Backdrop overlay fix
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    input{
+      display: block; //Every input on new line
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      font-size: 1.6em;
+    }
+  }
+
+  //Login status and login buttons
+  &.login-status{
+         margin-right: 0;
+  }
+
+  &.person{ //Person card style
+    float: right;
+    width: 350px;
+    padding-right: 50px;
+    .ribbon{
+      background: rgba(200,200,200,.5);
+      width: 50px;
+      height: 70px;
+      margin: 0 auto;
+      position: relative;
+      top: 19px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-top: 2px solid rgba(255,255,255,.5);
+      border-bottom: 0;
+      border-radius: 5px 5px 0 0;
+      box-shadow: 0 0 3px rgba(0,0,0,.7);
+    }
+    .ribbon:before{
+      content:"";
+      display: block;
+      width: 15px;
+      height: 15px;
+      background: #4E535B;
+      border: 4px solid #cfd0d1;
+      margin: 18px auto;
+      box-shadow: inset 0 0 5px #000, 0 0 2px #000, 0 1px 1px 1px #A7A8AB;
+      border-radius: 100%;
+    }
+
+    .card{
+      background: #F1F2F4;
+      border-bottom: 2px solid #C5C5C8;
+      border-radius: 5px;
+      text-align: center;
+      color: #36383C;
+      text-shadow: 0 1px 0 #FFF;
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 15px 40px 20px 40px;
+      box-shadow: 0 0 3px #000;
+      &:before{
+        content:"";
+        display: block;
+        width: 70px;
+        height: 4px;
+        background: #4E535B;
+        border-radius: 5px;
+        border-bottom: 1px solid #FFFFFF;
+        border-top: 2px solid #CBCBCD;
+        margin: 0 auto;
+      }
+    }
+
+    h1{
+      font-size: 1.6em;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    p{
+      font-family:'Helvetica Neue';
+      font-weight: 300;
+      color: #7B808A;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    hr{
+      border-top: 1px solid rgba(0,0,0,.5);
+      border-bottom: 1px solid rgba(255,255,255,.5);
+      border-left: 0;
+      border-right: 0;
+      margin-top: 30px;
+    }
+
+    .io{
+      padding: 0;
+      padding-bottom: 10px;
+      &:before{
+        position: relative;
+        top: 15px;
+        border-top: 2px solid #a89c9d;
+        border-bottom: 1px solid #474445;
+      }
+      img{
+        width: 150px;
+        border-radius: 100%;
+        border: 4px solid #FFF;
+        margin: 18px auto 0;
+        box-shadow: 0 1px 1px 1px #A7A8AB;
+      }
+
+      h2{
+        margin-top: 0;
+      }
+
+      p {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+      }
+    }
+
+    .ior{
+      position:relative;
+      z-index: 1;
+    }
+
+    .press{
+      background: #000000;
+      height: 40px;
+      margin-top: -7px;
+      border-radius: 5px 5px 0 0;
+      text-align: left;
+      line-height: 40px;
+      padding: 0 10px;
+      color: #FFF;
+      text-shadow: none;
+      span{
+        float: right;
+        font-family: Georgia;
+      }
+    }
+  }
+}
