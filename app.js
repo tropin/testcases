@@ -41,13 +41,16 @@ OTTApp.config(function ($routeProvider) {
 
 
 
-OTTApp.run(['$rootScope','$location', 'UserService', function ($rootScope, $location, UserService) {
+OTTApp.run(['$rootScope','$location', 'UserService', 'LoginService', function ($rootScope, $location, UserService, LoginService) {
     //Checking permission for route
     $rootScope.$on('$routeChangeStart', function (event, next) {
         var neededRole = (next.$$route) ? next.$$route.roles : '';
         if (neededRole) { //If we have restrictions on route
             var userInfo = UserService.getUser(); //Getting user info from storage
             if (!userInfo || userInfo.role !== neededRole){ //Checking have we needed role
+                if (!userInfo){
+                    LoginService(); //If not logged in, show login form
+                }
                 $location.path('/home'); //If not, redirect to home
             }
         }
